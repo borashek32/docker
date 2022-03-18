@@ -6,7 +6,7 @@
 - PHP8.0
 - Node.js
 
-
+Локальная установка:
 - клонировать репозиторий `https://github.com/borashek32/docker.git`
 - переименовать .env.example в .env
 - docker-compose up --build -d
