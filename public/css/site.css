@@ -1,4 +1,4 @@
-@import url();
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,bod,light,medium&display=swap&subset=cyryllic-ext);
 * {
   padding: 0;
   margin: 0;
@@ -31,7 +31,7 @@ body {
 
 .left-column {
   width: 180px;
-  height: 100vh;
+  height: 100%;
   background-color: #374050;
 }
 
@@ -128,10 +128,13 @@ hr {
 .content {
   background-color: #F2F6FA;
   height: 100vh;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .table {
   width: 630px;
+  position: absolute;
 }
 
 .table-body {
@@ -152,6 +155,22 @@ hr {
 .item {
   color: 6000000E6F;
   font-size: 11px;
-  padding: 18px;
+  padding: 14px;
   border-bottom: 1px solid #C4C4C4;
+}
+
+.button {
+  width: 136px;
+  height: 30px;
+  border-radius: 5px;
+  position: absolute;
+  margin-top: 17px;
+  right: 18px;
+  background-color: #0FC5FF;
+  top: 76px;
+}
+
+.button-text {
+  color: #fff;
+  font-size: 11px;
 }

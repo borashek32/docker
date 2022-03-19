@@ -1,4 +1,4 @@
-@if(\App\Models\Product::all()->count() > 0)
+@if($products->count() > 0)
     <div class="table">
         <table class="">
             <thead>
@@ -14,17 +14,16 @@
                 <tr>
                     <td class="item">{{ $product->article }}</td>
                     <td class="item">{{ $product->name }}</td>
-                    @if($product->status == 'available') 
+
+                    @if($product->status == '1') 
                         <td class="item">доступен</td>
                     @else
                         <td class="item">недоступен</td>
                     @endif
 
-                    {{-- <td class="item">{{ json_encode($product->data, JSON_FORCE_OBJECT) }}</td> --}}
-
                     <td class="item">
-                        @foreach($product->data)
-                            {{ $product->data->color }}
+                        @foreach($product->data as $field => $value)
+                            {{ $field }}: {{ $value }}<br>
                         @endforeach
                     </td>
                 </tr>

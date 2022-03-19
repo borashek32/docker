@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('article', 255)->unique()->index();
             $table->string('name');
-            $table->enum('status', ['available','unavailable'])->default('available');
+            $table->enum('status', ['1','0'])->default('1');
             $table->jsonb('data');
             $table->softDeletes();
             $table->timestamps();

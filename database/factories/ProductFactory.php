@@ -26,15 +26,15 @@ class ProductFactory extends Factory
             'article' => Str::random(5) . '-' . $this->faker->randomNumber(5, true) . '/' . $this->faker->unixTime(),
             'name'    => $this->faker->word,
             'status'  => $this->faker->randomElement([
-                'available', 
-                'unavailable'
+                '1', 
+                '0'
             ]),
-            'data'    => json_encode([
-                'color' => $this->faker->safeColorName,
-                'size'  => $this->faker->randomElement([
+            'data'    => [
+                'цвет'    => $this->faker->safeColorName,
+                'размер'  => $this->faker->randomElement([
                     'XS', 'S', 'M', 'L', 'XL', 'XXL'
                 ])
-            ])
+            ]
         ];
     }
 }

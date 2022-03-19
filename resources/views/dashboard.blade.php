@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="">
-        <div class="">
-            <div class="">
-                @include('includes.products')
-            </div>
-        </div>
+        @include('includes.products')
+
+        <button class="button">
+            <p class="button-text">Добавить</p>
+        </button>
     </div>
 @endsection

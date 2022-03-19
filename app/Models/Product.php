@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -16,8 +17,12 @@ class Product extends Model
         'data'
     ];
 
+    protected $casts = [
+        'data' => 'array',
+    ];
+
     public function scopeActive($query)
     {
-        $query->where('status', 'available');
+        $query->where('status', '1');
     }
 }

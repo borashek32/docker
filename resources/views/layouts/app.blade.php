@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/site.css') }}">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bod,light,medium&display=swap&subset=cyryllic-ext" rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bod,light,medium&display=swap&subset=cyryllic-ext" rel="stylesheet"> --}}
         @livewireStyles
 
         <script src="{{ mix('js/app.js') }}" defer></script>
