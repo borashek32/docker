@@ -5,42 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Панель инструментов</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/site.css') }}">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+        <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bod,light,medium&display=swap&subset=cyryllic-ext" rel="stylesheet">
         @livewireStyles
 
-        <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
+    <body class="background-admin">
+        <div class="left-column">
+           <div class="logo-fon">
+                <div class="small-logo">
+                    @include('includes.small-logo')
+                </div>
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+                <div class="text-left">
+                    <p>Enterprise<br>Resourse<br>Planning</p>
+                </div>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+                <div class="menu">
+                    <p class="menu-text">Продукты</p>
+                </div>
+            </div>
+        </div>    
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="wrap">
+            <div class="content">
+                @include('navigation-menu')
+        
+                @yield('content')
+            </div>
         </div>
+            
 
-        @stack('modals')
-
-        @livewireScripts
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

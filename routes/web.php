@@ -14,16 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get(
-    '/',
-    function () {
-        return view('welcome');
-    }
-);
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])
+    ->name('welcome');
 
-Route::get('/users', fn() => User::all());
-
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// DASHBOARD ROUTES   
+Route::get('/dashboard', [\App\Http\Controllers\Dashboard\ProductController::class, 'products'])
+    ->name('user-products')->middleware('auth');
