@@ -12,8 +12,17 @@
             <tbody class="table-body">
             @foreach($products as $product)
                 <tr>
-                    <td class="item">{{ $product->article }}</td>
-                    <td class="item">{{ $product->name }}</td>
+                    <td class="item">
+                        <a href="#" wire:click="show()">
+                            {{ $product->article }}
+                        </a>
+                    </td>
+                    
+                    <td class="item">
+                        <a href="#" wire:click="show()">
+                            {{ $product->name }}
+                        </a>
+                    </td>
 
                     @if($product->status == '1') 
                         <td class="item">доступен</td>

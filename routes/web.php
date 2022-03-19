@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Products;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +18,5 @@ Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])
     ->name('welcome');
 
 // DASHBOARD ROUTES   
-Route::get('/dashboard', [\App\Http\Controllers\Dashboard\ProductController::class, 'products'])
-    ->name('user-products')->middleware('auth');
+Route::resource('/products', \App\Http\Controllers\Dashboard\ProductController::class)
+    ->middleware('auth');
