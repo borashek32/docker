@@ -33,6 +33,9 @@ class ProductFactory extends Factory
                 'цвет'    => $this->faker->safeColorName,
                 'размер'  => $this->faker->randomElement([
                     'XS', 'S', 'M', 'L', 'XL', 'XXL'
+                ]),
+                'скидка'  => $this->faker->randomElement([
+                    '30%', '50%'
                 ])
             ]
         ];

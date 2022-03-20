@@ -60,16 +60,16 @@ body
   color: rgba(256, 256, 256, 0.7)
   font-size: 11px
 
-.text-left
+.text-left-container
   position: absolute
-  width: 50px
-  height: 33px
   left: 90px
   font-style: normal
   font-weight: 400
-  font-size: 12px
   line-height: 11px
+
+.text-left
   color: #FFFFFF
+  font-size: 12px
 
 // content - right part
 .wrap
@@ -146,22 +146,110 @@ hr
   border-bottom: 1px solid #C4C4C4
 
 // button
+.button-overflow
+  position: absolute
+  top: 76px
+  right: 18px
+
 .button
   width: 136px
   height: 30px
   border-radius: 5px
-  position: absolute
   margin-top: 17px
-  right: 18px
   background-color: #0FC5FF
-  top: 76px
+  display: flex
+  justify-content: center
+  align-items: center
+  coursor: pointer
 
 .button-text
   color: #fff
   font-size: 11px
 
 // card show
-.show  
-  width: 630
-  height: 387
-  background-color: rgba(0, 0, 0, 0.4)
+.modal-overlay
+  height: 100vh
+  width: 100vw
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: right
+
+.modal 
+  width: 630px
+  margin-top: 59px
+  padding-left: 11px
+  padding-bottom: 39px
+  right: 0
+  position: absolute
+  background-color: #374050
+  border: 1px solid
+
+.modal-header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.modal-header-text
+  font-size: 20px
+  color: #fff  
+  margin-top: 24px
+  margin-bottom: 28px
+
+.close
+  margin-top: 24px
+  width: 17px
+  height: 17px
+  cursor: pointer
+
+.input-group
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding-bottom: 18px
+
+.input
+  border-radius: 3px
+  width: 472px
+  height: 30px
+  margin-top: 10px
+
+.attributes
+  display: flex
+  flex-direction: row
+
+.input-attr
+  border-radius: 3px
+  width: 220px
+  margin-top: 10px
+  margin-right: 11px
+  height: 30px
+
+.add-attr
+  color: #0FC5FF
+  font-size: 12px
+  padding-top: 15px
+  text-decoration: none
+  border-bottom: 1px dashed #0FC5FF
+  margin-bottom: 31px
+
+.trash
+  width: 16px
+  height: 16px
+  margin-top: 18px
+  cursor: pointer
+
+.status-overflow
+  background-color: #374050
+  border-radius: 3px
+  width: 489px
+  height: 122px
+
+.status
+  font-size: 12px
+  color: #000
+  
+
+// modal
+.closed 
+  display: none

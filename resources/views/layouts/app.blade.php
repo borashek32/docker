@@ -10,37 +10,42 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/site.css') }}">
 
-        {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bod,light,medium&display=swap&subset=cyryllic-ext" rel="stylesheet"> --}}
         @livewireStyles
 
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="background-admin">
-        <div class="left-column">
-           <div class="logo-fon">
-                <div class="small-logo">
-                    @include('includes.small-logo')
-                </div>
+    <body>
+        <div class="background-admin">
+            <div class="left-column">
+            <div class="logo-fon">
+                    <div class="small-logo">
+                        @include('includes.small-logo')
+                    </div>
 
-                <div class="text-left">
-                    <p>Enterprise<br>Resourse<br>Planning</p>
-                </div>
+                    <div class="text-left-container">
+                        <div class="text-left">
+                            <p>Enterprise<br>Resourse<br>Planning</p>
+                        </div>
+                    </div>    
 
-                <div class="menu">
-                    <p class="menu-text">Продукты</p>
+                    <div class="menu">
+                        <p class="menu-text">Продукты</p>
+                    </div>
                 </div>
-            </div>
-        </div>    
+            </div>    
 
-        <div class="wrap">
-            <div class="content">
-                @include('navigation-menu')
-        
-                @yield('content')
+            <div class="wrap">
+                <div class="content">
+                    @include('navigation-menu')
+            
+                    @yield('content')
+                </div>
             </div>
         </div>
-            
+                    
+        @include('products.create')
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/index.js') }}"></script>
     </body>
 </html>

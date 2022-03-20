@@ -13,13 +13,13 @@
             @foreach($products as $product)
                 <tr>
                     <td class="item">
-                        <a href="#" wire:click="show()">
+                        <a href="{{ route('products.show', $product->id) }}">
                             {{ $product->article }}
                         </a>
                     </td>
                     
                     <td class="item">
-                        <a href="#" wire:click="show()">
+                        <a href="{{ route('products.show', $product->id) }}">
                             {{ $product->name }}
                         </a>
                     </td>
@@ -41,5 +41,5 @@
         </table>
     </div>
 @else
-    <p>На сайте пока нет товаров.</p>
+    <p class="item">На сайте пока нет товаров.</p>
 @endif
