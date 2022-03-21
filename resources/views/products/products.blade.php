@@ -12,8 +12,8 @@
         <tbody class="table__body">
             @foreach($products as $product)
                 <tr>
-                    <td class="body__item" style="padding-left:">
-                        <a href="#" id="showLink">
+                    <td class="body__item" style="padding-left:18px">
+                        <a href="#" id="{{ $product->id }}">
                             {{ $product->article }}
                         </a>
                     </td>
@@ -40,15 +40,3 @@
 @else
     <p class="text-sm text-black-700 mt-6">На сайте пока нет товаров.</p>
 @endif
-
-<script>
-    $( document ).ready(function() {
-    
-        $("#showLink").submit(function( event ) {
-        alert( "123" );
-        event.preventDefault();
-
-    });
-
-});
-</script>

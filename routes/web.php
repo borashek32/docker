@@ -17,9 +17,6 @@ use App\Http\Livewire\Products;
 Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])
     ->name('welcome');
 
-// DASHBOARD ROUTES   
-Route::resource('/products', App\Http\Controllers\Dashboard\ProductController::class)
-    ->middleware('auth');
-
-    Route::middleware(['auth:sanctum', 'verified'])
+// DASHBOARD ROUTES
+Route::middleware(['auth:sanctum', 'verified'])
     ->resource('/products', App\Http\Controllers\Dashboard\ProductController::class);
