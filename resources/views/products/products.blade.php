@@ -1,45 +1,55 @@
 @if($products->count() > 0)
-    <div class="table">
-        <table class="">
-            <thead>
-            <tr class="header">
-                <th class="title">АРТИКУЛ</th>
-                <th class="title">НАЗВАНИЕ</th>
-                <th class="title">СТАТУС</th>
-                <th class="title">АТРИБУТЫ</th>
+    <table class="content__table">
+        <thead class="table__header">
+            <tr>
+                <th class="header__title" style="padding-left:18px">АРТИКУЛ</th>
+                <th class="header__title">НАЗВАНИЕ</th>
+                <th class="header__title">СТАТУС</th>
+                <th class="header__title">АТРИБУТЫ</th>
             </tr>
-            </thead>
-            <tbody class="table-body">
+        </thead>
+
+        <tbody class="table__body">
             @foreach($products as $product)
                 <tr>
-                    <td class="item">
-                        <a href="{{ route('products.show', $product->id) }}">
+                    <td class="body__item" style="padding-left:">
+                        <a href="#" data-show-route="{{ route('products.show', $product) }}">
                             {{ $product->article }}
                         </a>
                     </td>
                     
-                    <td class="item">
-                        <a href="{{ route('products.show', $product->id) }}">
-                            {{ $product->name }}
-                        </a>
+                    <td class="body__item">
+                        {{ $product->name }}
                     </td>
 
                     @if($product->status == '1') 
-                        <td class="item">доступен</td>
+                        <td class="body__item">доступен</td>
                     @else
-                        <td class="item">недоступен</td>
+                        <td class="body__item">недоступен</td>
                     @endif
 
-                    <td class="item">
+                    <td class="body__item">
                         @foreach($product->data as $field => $value)
                             {{ $field }}: {{ $value }}<br>
                         @endforeach
                     </td>
                 </tr>
             @endforeach
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
 @else
-    <p class="item">На сайте пока нет товаров.</p>
+    <p class="text-sm text-black-700 mt-6">На сайте пока нет товаров.</p>
 @endif
+
+<script>
+    $.ajax({
+    type: 'get',
+    url: "{{ route('products.show', $product->id) }}",
+    data: {
+            id: id
+            },
+    success: function(data) {
+        alert(data);
+    }
+});
+</script>

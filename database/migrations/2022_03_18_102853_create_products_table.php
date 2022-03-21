@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('article', 255)->unique()->index();
-            $table->string('name');
+            $table->string('name', 255);
             $table->enum('status', ['1','0'])->default('1');
             $table->jsonb('data');
             $table->softDeletes();

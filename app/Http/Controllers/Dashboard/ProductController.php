@@ -43,11 +43,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->post('data');
+        $json_data = collect($data)->mapWithKeys(fn($item) => [$item[0] => $item[1]]);
+
         $product = Product::create([
             'article'     => $request->article,
             'name'        => $request->name,
             'status'      => $request->status,
-            'data'        => $request->data
+            'data'        => $json_data
         ]);
         
         return redirect('/products');
@@ -63,7 +66,7 @@ class ProductController extends Controller
     {
         $product = Product::where('id', $id)->first();
 
-        return view('products.show', compact('product'));
+        return view('products.index', compact('product'));
     }
 
     /**

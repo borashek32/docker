@@ -14,36 +14,37 @@
 
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
-        <div class="background-admin">
-            <div class="left-column">
-            <div class="logo-fon">
-                    <div class="small-logo">
+    <body>            
+        @include('products.create')
+        @include('products.show')
+
+        <div class="bg">
+            <div class="bg__left">
+                <div class="left__bg-logo">
+                    <div class="bg-logo__admin-logo">
                         @include('includes.small-logo')
                     </div>
-
-                    <div class="text-left-container">
-                        <div class="text-left">
-                            <p>Enterprise<br>Resourse<br>Planning</p>
-                        </div>
-                    </div>    
-
-                    <div class="menu">
-                        <p class="menu-text">Продукты</p>
+                </div>
+            
+                <div class="left__container">
+                    <div class="container__text">
+                        <p>Enterprise<br>Resourse<br>Planning</p>
                     </div>
+                </div>        
+
+                <div class="left__menu">
+                    <p class="menu__text">Продукты</p>
                 </div>
             </div>    
 
-            <div class="wrap">
-                <div class="content">
+            <div class="bg__right">
+                <div class="right__content">
                     @include('navigation-menu')
             
                     @yield('content')
                 </div>
             </div>
         </div>
-                    
-        @include('products.create')
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{{ asset('js/index.js') }}"></script>

@@ -18,5 +18,8 @@ Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])
     ->name('welcome');
 
 // DASHBOARD ROUTES   
-Route::resource('/products', \App\Http\Controllers\Dashboard\ProductController::class)
+Route::resource('/products', App\Http\Controllers\Dashboard\ProductController::class)
     ->middleware('auth');
+
+    Route::middleware(['auth:sanctum', 'verified'])
+    ->resource('/dashboard', App\Http\Controllers\Dashboard\ProductController::class);

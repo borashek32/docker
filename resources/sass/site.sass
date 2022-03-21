@@ -5,11 +5,10 @@ $fontFamily: "Roboto"
 *
   padding: 0
   margin: 0
-  
+
 body
-  position: relative
   width: 100%
-  display: block
+  height: 100%
 
 // the first page
 .background
@@ -21,235 +20,262 @@ body
   height: 200px
 
 // dashboard
-.background-admin
-  height: 100vh
-  width: 100vw
-  background-color: #E5E5E5
-  position: absolute
+.bg
   display: flex
   flex-direction: row
+  // min-height: 100vh auto
+  // min-width: 100vw
+  // background-size: contain
 
-// left column
-.left-column
-  width: 180px
-  height: 100vh
-  background-color: #374050
+  .bg__left
+    width: 180px
+    background-color: #374050
 
-.logo-fon
-  border-bottom-right-radius: 19px
-  width: 78px
-  height: 59px
-  display: flex
-  background-color: white
-  justify-content: center
-  align-items: center
-  position: absolute
+    .left__bg-logo
+      border-bottom-right-radius: 19px
+      width: 78px
+      height: 59px
+      display: flex
+      background-color: #fff
+      justify-content: center
+      align-items: center
+      position: absolute
 
-.small-logo
-  position: absolute
-  width: 53px
-  height: 22.85px
-  left: 12px
-  top: 18px
+      .bg-logo__admin-logo
+        position: absolute
+        width: 53px
+        height: 22.85px
+        left: 12px
+        top: 18px
 
-.menu
-  margin-top: 83px
-  margin-left: 34px
+    .left__container
+      position: absolute
+      left: 90px
+      top: 8px
+      font-style: normal
+      font-weight: 400
+      line-height: 11px
+
+      .container__text
+        color: #FFFFFF
+        font-size: 12px
+
+    .left__menu
+      margin-top: 73px
+      margin-left: 34px
   
-.menu-text
-  color: rgba(256, 256, 256, 0.7)
-  font-size: 11px
+      .menu__text
+        color: rgba(256, 256, 256, 0.7)
+        font-size: 11px
 
-.text-left-container
-  position: absolute
-  left: 90px
-  font-style: normal
-  font-weight: 400
-  line-height: 11px
+  .bg__right
+    background-color: #F2F6FA
+    background-attachment: fixed
+    flex: auto
+    
+    .right__content
+      height: 100vh
+      flex-wrap: wrap
+      flex-direction: row
 
-.text-left
-  color: #FFFFFF
-  font-size: 12px
+      .content__nav
+        height: 59px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        background-color: #fff
+        padding-left: 18px
+        padding-right: 32px
+        padding-top: 26px
 
-// content - right part
-.wrap
-  width: 100vw
-  height: 100%
+        .nav__link
+          color: #ED1C24
+          font-size: 11px
+          
+        .nav__auth
+          margin-top: -10px
+          color: #A6AFB8
+          font-size: 11px
 
-// top navigation  
-.nav
-  height: 59px
-  flex-wrap: wrap
-  background-color: #fff
-  right: 0
+        .nav__hr
+          background-color: #ED1C24
+          width: 63px
+          height: 3px
+          margin-top: 13px
 
-.nav-link
-  position: absolute
-  margin-top: 26px
-  margin-left: 18px
-  
-.text
-  color: #ED1C24
-  font-size: 11px
+      .content__table
+        width: 630px
+        padding-left: 18px
 
-.line
-  display: flex
-  flex-direction: column
+        .table__header
+          background-color: #F2F6FA
+          padding-left: 18px
 
-hr
-  color: #ED1C24
-  width: 60px
-  height: 3px
-  margin-left: 18px
-  top: 59px
+          .header__title
+            padding-top: 10px
+            padding-bottom: 12px
+            font-size: 11px
+            font-weight: 400
+            text-align: left
+            color: #6E6E6F
+        
+        .table__body
+          border-top: 1px solid #C4C4C4
+          background-color: #fff
 
-.auth
-  margin-top: 15px
-  right: 0
-  font-size: 11px
-  color: #A6AFB8
-  position: absolute
+          .body__item
+            color: #6E6E6F
+            font-size: 11px 
+            padding-bottom: 14px
+            padding-top: 14px
+            border-bottom: 1px solid #C4C4C4
 
-.name
-  color: #A6AFB8
-  font-size: 11px
+      .content__bg-button
+        top: 76px
+        right: 18px
+        position: absolute
 
-// content
-.content
-  background-color: #F2F6FA
-  height: 100vh
-  flex-wrap: wrap
-  flex-direction: row
+        .bg-button__button
+          width: 136px
+          height: 30px
+          border-radius: 5px
+          margin-top: 17px
+          background-color: #0FC5FF
+          display: flex
+          justify-content: center
+          align-items: center
+          coursor: pointer
 
-// table
-.table
-  width: 630px
-  position: absolute
-
-.table-body
-  border-top: 1px solid #C4C4C4
-  background-color: #fff
-
-.title
-  color: #6E6E6F
-  font-size: 11px
-  font-weight: 400
-  text-align: left
-  padding-left: 18px
-  padding-top: 10px
-  padding-bottom: 12px
-
-.item
-  color: 6E6E6F
-  font-size: 11px 
-  padding: 14px
-  border-bottom: 1px solid #C4C4C4
-
-// button
-.button-overflow
-  position: absolute
-  top: 76px
-  right: 18px
-
-.button
-  width: 136px
-  height: 30px
-  border-radius: 5px
-  margin-top: 17px
-  background-color: #0FC5FF
-  display: flex
-  justify-content: center
-  align-items: center
-  coursor: pointer
-
-.button-text
-  color: #fff
-  font-size: 11px
+          .button__button-text
+            color: #fff
+            font-size: 11px
 
 // card show
-.modal-overlay
-  height: 100vh
-  width: 100vw
-  position: relative
+.bg-modal
+  width: 100%
+  height: 100%
   display: flex
   flex-direction: row
   justify-content: right
-
-.modal 
-  width: 630px
-  margin-top: 59px
-  padding-left: 11px
-  padding-bottom: 39px
-  right: 0
+  z-index: 100000
   position: absolute
-  background-color: #374050
-  border: 1px solid
 
-.modal-header
-  display: flex
-  flex-direction: row
-  justify-content: space-between
+  .bg-modal__modal 
+    width: 630px
+    margin-top: 59px
+    padding-left: 11px
+    padding-bottom: 39px
+    right: 0
+    position: absolute
+    background-color: #374050
+    border: 1px solid
 
-.modal-header-text
-  font-size: 20px
-  color: #fff  
-  margin-top: 24px
-  margin-bottom: 28px
+    .modal__header
+      display: flex
+      flex-direction: row
+      justify-content: space-between
 
-.close
-  margin-top: 24px
-  width: 17px
-  height: 17px
-  cursor: pointer
+      .header__text
+        font-size: 20px
+        color: #fff  
+        margin-top: 24px
+        margin-bottom: 28px
 
-.input-group
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  padding-bottom: 18px
+      .header__close
+        margin-top: 24px
+        width: 17px
+        height: 17px
+        cursor: pointer
 
-.input
-  border-radius: 3px
-  width: 472px
-  height: 30px
-  margin-top: 10px
+    .modal__input-group
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      padding-bottom: 18px
 
-.attributes
-  display: flex
-  flex-direction: row
+      .input-group__title
+        color: rgba(256, 256, 256, 0.7)
+        font-size: 11px
+        
+      .input-group__input
+        border-radius: 3px
+        width: 472px
+        height: 30px
+        margin-top: 10px
+        padding-top: 11px
+        padding-left: 9px
+        padding-bottom: 9px
+        font-size: 11px
 
-.input-attr
-  border-radius: 3px
-  width: 220px
-  margin-top: 10px
-  margin-right: 11px
-  height: 30px
+    .modal__subheader
+      font-size: 14px
+      color: #fff 
+      margin-bottom: 18px 
 
-.add-attr
-  color: #0FC5FF
-  font-size: 12px
-  padding-top: 15px
-  text-decoration: none
-  border-bottom: 1px dashed #0FC5FF
-  margin-bottom: 31px
+    .modal__bg-attr
+      display: flex
+      flex-direction: row
+      margin-bottom: 16px
 
-.trash
-  width: 16px
-  height: 16px
-  margin-top: 18px
-  cursor: pointer
+      .bg-attr__input-group
+        display: flex
+        flex-direction: column
+        margin-right: 11px
 
-.status-overflow
-  background-color: #374050
-  border-radius: 3px
-  width: 489px
-  height: 122px
+        .input-group__title
+          color: rgba(256, 256, 256, 0.7)
+          font-size: 11px
+          margin-top: 10px
+          
+        .input-group__input
+          border-radius: 3px
+          width: 220px
+          height: 30px
+          padding-top: 11px
+          padding-left: 9px
+          padding-bottom: 9px
+          font-size: 11px
 
-.status
-  font-size: 12px
-  color: #000
-  
+          .input
+            background-color: #374050
+            border-radius: 3px
+            width: 489px
+            height: 122px
+
+      .bg-attr__trash
+        width: 16px
+        height: 16px
+        margin-top: 34px
+        cursor: pointer
+
+    .modal__add-attr
+      color: #0FC5FF
+      font-size: 11px
+      text-decoration: none
+      border-bottom: 1px dashed #0FC5FF
+
+  .bg-modal__button
+    margin-top: 30px
+    width: 136px
+    height: 30px
+    border-radius: 5px
+    margin-top: 17px
+    background-color: #0FC5FF
+    display: flex
+    justify-content: center
+    align-items: center
+    coursor: pointer
+    
+    .bg-button__text
+      color: #fff
+      font-size: 11px
+
 
 // modal
 .closed 
   display: none
+
+.error
+  color: red
+  font-size: 12px
+  margin: 6px

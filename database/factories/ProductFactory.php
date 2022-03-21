@@ -23,8 +23,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'article' => Str::random(5) . '-' . $this->faker->randomNumber(5, true) . '/' . $this->faker->unixTime(),
-            'name'    => $this->faker->word,
+            'article' => Str::random(5) . $this->faker->randomNumber(5, true),
+            'name'    => $this->faker->words(3, true),
             'status'  => $this->faker->randomElement([
                 '1', 
                 '0'
@@ -33,9 +33,6 @@ class ProductFactory extends Factory
                 'цвет'    => $this->faker->safeColorName,
                 'размер'  => $this->faker->randomElement([
                     'XS', 'S', 'M', 'L', 'XL', 'XXL'
-                ]),
-                'скидка'  => $this->faker->randomElement([
-                    '30%', '50%'
                 ])
             ]
         ];
