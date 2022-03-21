@@ -22,4 +22,4 @@ Route::resource('/products', App\Http\Controllers\Dashboard\ProductController::c
     ->middleware('auth');
 
     Route::middleware(['auth:sanctum', 'verified'])
-    ->resource('/dashboard', App\Http\Controllers\Dashboard\ProductController::class);
+    ->resource('/products', App\Http\Controllers\Dashboard\ProductController::class);

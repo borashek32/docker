@@ -13,7 +13,7 @@
             @foreach($products as $product)
                 <tr>
                     <td class="body__item" style="padding-left:">
-                        <a href="#" data-show-route="{{ route('products.show', $product) }}">
+                        <a href="#" id="showLink">
                             {{ $product->article }}
                         </a>
                     </td>
@@ -42,14 +42,13 @@
 @endif
 
 <script>
-    $.ajax({
-    type: 'get',
-    url: "{{ route('products.show', $product->id) }}",
-    data: {
-            id: id
-            },
-    success: function(data) {
-        alert(data);
-    }
+    $( document ).ready(function() {
+    
+        $("#showLink").submit(function( event ) {
+        alert( "123" );
+        event.preventDefault();
+
+    });
+
 });
 </script>
