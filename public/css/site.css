@@ -250,6 +250,20 @@ body {
   text-decoration: none;
   border-bottom: 1px dashed #0FC5FF;
 }
+.bg-modal .bg-modal__modal .modal__show {
+  text-align: left;
+}
+.bg-modal .bg-modal__modal .modal__show .show__title {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  padding-bottom: 18px;
+}
+.bg-modal .bg-modal__modal .modal__show .show__value {
+  color: white;
+  font-size: 11px;
+  padding-left: 18px;
+  padding-bottom: 18px;
+}
 .bg-modal .bg-modal__button {
   margin-top: 30px;
   width: 136px;

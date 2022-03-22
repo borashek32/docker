@@ -49,9 +49,6 @@ var trash = document.querySelector("#trash1");
     document.getElementById("extraDataKey").value = "";
     document.getElementById("extraDataValue").value = "";
   }
-
-
-
   
 // form validation ДОДЕЛАТЬ!!
 function validate() {
@@ -80,36 +77,35 @@ function validate() {
     }
 }
 
-
-
-// to send a request to a show route
-$(document).ready(function(){
-  $(".body__item").click(function(e){
+// to show a product
+$(document).ready(function() {
+  $(".body__item").click(function(e) {
     var id_click = e.target.id; // получаем id конкретного продукта
-    $("#show-modal").removeClass("closed"); // делаем видимым модальное окно php вывода продукта
-    $("#show-modal-overlay").removeClass("closed"); // делаем видимым модальное окно php вывода продукта
-    // $.ajax({
-    //   type: "GET",
-    //   url: '/products/'+ id_click,
-    //   success: function(response) {
-    //     console.log(response); 
-    //   }
-    // });
     $.ajax({
       type: 'GET',
       url: '/products/' + id_click,
       success: function(product) {
-        if(product) {
-          console.log(product); 
-         }
-      }   
-  });
-  });
 
-    // $.get("/products/", {param: id_click}, function(data, status){
-      
-      
-  });
+        if(product) {
+          $("#show-modal-overlay").removeClass('closed');
+          $("#show-modal").removeClass('closed');
+
+          document.getElementById("productName").innerHTML = product.name;
+          document.getElementById("productArticle").innerHTML = product.article;
+          document.getElementById("productNameTable").innerHTML = product.name;
+          
+          if(product.status == 0) {
+            document.getElementById("productStatus").innerText = 'Недоступен';
+          } else {
+            document.getElementById("productStatus").innerText = 'Доступен';
+          }
+
+          document.getElementById("productAttributes").innerHTML = product.data;
+        }
+      }   
+    });
+  }); 
+});
 
 // to close a show modal window  
 var showModal = document.querySelector("#show-modal");
@@ -120,71 +116,3 @@ var showModal = document.querySelector("#show-modal");
     showModal.classList.add("closed");
     showModalOverlay.classList.add("closed");
   });
-
-// to show a product
-// $(".body__item").on("click", event => console.log(event.target.id));
-
-// $('.body__item').on('click', function(e) {
-//   var id_click = e.target.id;
-//     showLink = document.getElementById(id_click);
-//     showModal = document.querySelector("#show-modal");
-//     showModalOverlay = document.querySelector("#show-modal-overlay");
-//     closeButton = document.getElementById("close");
-
-//   showLink.addEventListener("click", function() {
-//     showModal.classList.remove("closed");
-//     showModalOverlay.classList.remove("closed");
-//   });
-
-  // closeButton.addEventListener("click", function() {
-  //   showModal.classList.add("closed");
-  //   showModalOverlay.classList.add("closed");
-  // });
-  
-//   $.ajax({
-//     type: 'GET',
-//     url: '/products/show/',
-//     dataType: 'html', 
-//     data: {
-      
-//     },
-//     success: function(data){
-//       console.log(data)
-//     }, 
-//     error: function(){
-//         console.log('AJAX load did not work');
-//     }
-//   });
-// });
-
-
-// var showLink = document.querySelector("#showLink");
-
-// showLink.addEventListener("click", function() {
-//   let xhttp = new XMLHttpRequest();
-
-//   xhttp.onreadystatechange = function() {
-//       if (this.readyState == 4 && this.status == 200) {
-//           myFunction(this.responseText)
-//       }
-//   }
-
-//   xhttp.open("GET", "http://localhost:8000/products/show/{{ $product->id }}", true);
-//   xhttp.send();
-
-//   function myFunction(data) {
-//       console.log(data)
-//   }
-// });
-
-// $.ajax({
-//   url: "http://localhost:8000/products/1",
-//   data: data,
-//   success: success,
-//   dataType: dataType
-// });
-
-// $.get( "http://localhost:8000/products/1", function( data ) {
-//   alert( "Load was performed." );
-// });
-

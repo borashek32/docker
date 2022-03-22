@@ -14,7 +14,7 @@
 
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>            
+    <body id="body">            
         @include('products.create')
         @include('products.show')
 
