@@ -46,44 +46,46 @@ trash.addEventListener("click", function () {
 document.getElementById("trash1").onclick = function (e) {
   document.getElementById("extraDataKey").value = "";
   document.getElementById("extraDataValue").value = "";
-}; // form validation ДОДЕЛАТЬ!!
+}; // to create a product
 
 
-function validate() {
-  var article = document.getElementById("article");
-  errorArticle = document.querySelector("#error-article");
-  textErrorArticle = document.querySelector("#text-error-article");
-
-  if (!article.value) {
-    errorArticle.classList.remove("closed");
-    textErrorArticle.classList.remove("closed");
-    article.style.border = "1px solid red";
-    return false;
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
-
-  var nameProduct = document.querySelector("#nameProduct");
-  errorName = document.querySelector("#error-name");
-  textErrorName = document.querySelector("#text-error-name");
-
-  if (!nameProduct.value) {
-    errorName.classList.remove("closed");
-    textErrorName.classList.remove("closed");
-    article.style.border = "1px solid red";
-    return false;
-  }
-} // to create a product
-
-
-$(document).ready(function () {
-  $(".body__item").click(function (e) {
+});
+$(function () {
+  $('#formAddProduct').on('submit', function (e) {
+    e.preventDefault();
+    var form = this;
+    modalOverlay = document.querySelector("#modal-overlay");
+    table = document.querySelector("#products-table");
     $.ajax({
-      type: 'POST',
-      url: '/products/store',
-      data: {
-        product: product
+      url: $(form).attr('action'),
+      method: $(form).attr('method'),
+      data: new FormData(form),
+      processData: false,
+      dataType: 'json',
+      contentType: false,
+      beforeSend: function beforeSend() {
+        $(form).find('span.error-text').text('');
       },
-      success: function success(product) {
-        alert(product.id);
+      success: function success(data) {
+        if (data.code == 0) {
+          $.each(data.error, function (prefix, val) {
+            $(form).find('span.' + prefix + '_error').text(val[0]);
+          });
+        } else {
+          $(modalOverlay).addClass("closed");
+
+          if (data.status == 1) {
+            available = "\u0414\u043E\u0441\u0442\u0443\u043F\u0435\u043D";
+            $('#products-table').append("<tr>\n\t\t\t\t\t\t<td class=\"body__item\">".concat(data.article, "</td>\n\t\t\t\t\t\t<td class=\"body__item\">").concat(data.name, "</td>\n\t\t\t\t\t\t<td class=\"body__item\">").concat(available, "</td>\n\t\t\t\t\t\t<td class=\"body__item\">").concat(data.data, "</td>\n\t\t\t\t\t</tr>"));
+          } else {
+            unavilable = "\u041D\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u0435\u043D";
+            $('#products-table').append("<tr>\n\t\t\t\t\t\t<td class=\"body__item\">".concat(data.article, "</td>\n\t\t\t\t\t\t<td class=\"body__item\">").concat(data.name, "</td>\n\t\t\t\t\t\t<td class=\"body__item\">").concat(unavilable, "</td>\n\t\t\t\t\t\t<td class=\"body__item\">").concat(data.data, "</td>\n\t\t\t\t\t</tr>"));
+          }
+        }
       }
     });
   });

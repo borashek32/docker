@@ -22,17 +22,43 @@ class ProductController extends Controller
     
     public function store(Request $request)
     {
-        $data = $request->post('data');
-        $json_data = collect($data)->mapWithKeys(fn($item) => [$item[0] => $item[1]]);
-
-        $product = Product::create([
-            'article'     => $request->article,
-            'name'        => $request->name,
-            'status'      => $request->status,
-            'data'        => $json_data
+        $validator = \Validator::make($request->all(),[
+            'name'     => 'required|string',
+            'article'  => 'required|unique:products',
+            'status'   => 'required'
+        ],[
+            'name.required'     => 'Поле "Название" обязательно для заполнения',
+            'name.string'       => 'Поле "Название" содержит только текстовые символы',
+            'article.required'  => 'Поле "Артикул" обязательно для заполнения',
+            'article.unique'    => 'Поле "Артикул" уникально',
+            'status.required'   => 'Поле "Статус" обязательно для заполнения'
         ]);
+
+        if(!$validator->passes()){
+            return response()->json([
+                'code'   => 0,
+                'error'  => $validator->errors()->toArray()
+            ]);
+
+        } else {
+            $data = $request->post('data');
+            $json_data = collect($data)->mapWithKeys(fn($item) => [$item[0] => $item[1]]);
+            $product = new Product();
+            $product->article   = $request->input('article');
+            $product->name      = $request->input('name');
+            $product->status    = $request->input('status');
+            $product->data      = $json_data;
+            $query = $product->save();
         
-        return redirect('/products');
+            if(!$query) {
+                return response()->json([
+                    'code'  => 0,
+                    'msg'   => 'Что-то пошло не так'
+                ]);
+            }else{
+                return $product;
+            }
+        }
     }
 
     public function show($id)

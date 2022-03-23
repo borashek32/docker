@@ -49,47 +49,60 @@ var trash = document.querySelector("#trash1");
     document.getElementById("extraDataKey").value = "";
     document.getElementById("extraDataValue").value = "";
   }
-  
-// form validation ДОДЕЛАТЬ!!
-function validate() {
-  var article = document.getElementById("article");
-    
-    errorArticle = document.querySelector("#error-article");
-    textErrorArticle = document.querySelector("#text-error-article");
-
-  if(!article.value) {
-      errorArticle.classList.remove("closed");
-      textErrorArticle.classList.remove("closed");
-      article.style.border = "1px solid red";
-      return false;
-    }
-
-  var nameProduct = document.querySelector("#nameProduct");
-
-    errorName = document.querySelector("#error-name");
-    textErrorName = document.querySelector("#text-error-name");
-
-  if(!nameProduct.value) {
-      errorName.classList.remove("closed");
-      textErrorName.classList.remove("closed");
-      article.style.border = "1px solid red";
-      return false;
-    }
-}
 
 // to create a product
-$(document).ready(function() {
-  $(".body__item").click(function(e) {
+$.ajaxSetup({
+	headers:{
+			'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+	}
+});
+$(function(){
+  $('#formAddProduct').on('submit', function(e){
+    e.preventDefault();
+
+		var form = this;
+			modalOverlay = document.querySelector("#modal-overlay");
+			table = document.querySelector("#products-table");
+		
     $.ajax({
-      type: 'POST',
-      url: '/products/store',
-      data: {
-        product,
-      },
-      success: function(product) {
-        alert(product.id);
-      }
-    });
+      url: $(form).attr('action'),
+			method: $(form).attr('method'),
+			data: new FormData(form),
+			processData: false,
+			dataType:'json',
+			contentType:false,
+			beforeSend:function(){
+				$(form).find('span.error-text').text('');
+	 		},
+      success: function(data) {
+				if(data.code == 0){
+					$.each(data.error, function(prefix, val){
+						$(form).find('span.'+prefix+'_error').text(val[0]);
+					});
+				} else { 
+					$(modalOverlay).addClass("closed");
+					if (data.status == 1) {
+						available = `Доступен`;
+
+						$('#products-table').append(`<tr>
+						<td class="body__item">${data.article}</td>
+						<td class="body__item">${data.name}</td>
+						<td class="body__item">${available}</td>
+						<td class="body__item">${data.data}</td>
+					</tr>`)
+
+					} else {
+						unavilable = `Недоступен`;
+						$('#products-table').append(`<tr>
+						<td class="body__item">${data.article}</td>
+						<td class="body__item">${data.name}</td>
+						<td class="body__item">${unavilable}</td>
+						<td class="body__item">${data.data}</td>
+					</tr>`)
+					}
+				}
+      }  
+    })
   });
 });
 

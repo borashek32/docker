@@ -1,5 +1,5 @@
 @if($products->count() > 0)
-    <table class="content__table">
+    <table class="content__table" id="products-table">
         <thead class="table__header">
             <tr>
                 <th class="header__title" style="padding-left:18px">АРТИКУЛ</th>
@@ -12,8 +12,8 @@
         <tbody class="table__body">
             @foreach($products as $product)
                 <tr>
-                    <td class="body__item" style="padding-left:18px">
-                        <a href="#" id="{{ $product->id }}">
+                    <td class="body__item">
+                        <a href="#" id="atr">
                             {{ $product->article }}
                         </a>
                     </td>
