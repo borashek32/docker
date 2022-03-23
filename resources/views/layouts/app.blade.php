@@ -17,6 +17,7 @@
     <body id="body">            
         @include('products.create')
         @include('products.show')
+        @include('products.edit')
 
         <div class="bg">
             <div class="bg__left">

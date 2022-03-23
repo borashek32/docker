@@ -162,6 +162,7 @@ body
 
   .bg-modal__modal 
     width: 630px
+    height: 550px
     margin-top: 59px
     padding-left: 11px
     padding-bottom: 39px
@@ -181,11 +182,18 @@ body
         margin-top: 24px
         margin-bottom: 28px
 
-      .header__close
-        margin-top: 24px
-        width: 17px
-        height: 17px
-        cursor: pointer
+      .header__icons
+        display: flex
+        flex-direction: row
+
+        .icons__close
+          margin-top: 24px
+          width: 17px
+          height: 17px
+          cursor: pointer
+          margin-left: 2px
+        .icons__close:last-child
+            margin-left: 14px
 
     .modal__input-group
       display: flex

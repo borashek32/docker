@@ -3,7 +3,11 @@
         <div class="modal__header">
             <p class="header__text" id="productName"></p>
 
-            <img src="/img/close.png" alt="close" class="header__close" id="close">
+            <div class="header__icons">
+                <img src="/img/edit.png" alt="edit" class="icons__close" id="edit">
+                <img src="/img/trash1.png" alt="trash" class="icons__close" id="trashShow">
+                <img src="/img/close.png" alt="close" class="icons__close" id="closeShow">
+            </div>
         </div>
 
         <table>

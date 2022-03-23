@@ -6,7 +6,7 @@ var __webpack_exports__ = {};
 // to show a form to add a product
 var modal = document.querySelector("#modal"),
     modalOverlay = document.querySelector("#modal-overlay"),
-    closeButton = document.querySelector("#close-button"),
+    closeButton = document.querySelector("#closeCreate"),
     openButton = document.querySelector("#open-button");
 attr1 = document.querySelector("#attr1");
 attrOverlay1 = document.querySelector("#attr-overlay1");
@@ -71,8 +71,23 @@ function validate() {
     article.style.border = "1px solid red";
     return false;
   }
-} // to show a product
+} // to create a product
 
+
+$(document).ready(function () {
+  $(".body__item").click(function (e) {
+    $.ajax({
+      type: 'POST',
+      url: '/products/store',
+      data: {
+        product: product
+      },
+      success: function success(product) {
+        alert(product.id);
+      }
+    });
+  });
+}); // to show a product
 
 $(document).ready(function () {
   $(".body__item").click(function (e) {
@@ -81,33 +96,53 @@ $(document).ready(function () {
     $.ajax({
       type: 'GET',
       url: '/products/' + id_click,
-      success: function success(product) {
-        if (product) {
+      success: function success(response) {
+        if (response) {
           $("#show-modal-overlay").removeClass('closed');
           $("#show-modal").removeClass('closed');
-          document.getElementById("productName").innerHTML = product.name;
-          document.getElementById("productArticle").innerHTML = product.article;
-          document.getElementById("productNameTable").innerHTML = product.name;
+          document.getElementById("productName").innerHTML = response.name;
+          document.getElementById("productArticle").innerHTML = response.article;
+          document.getElementById("productNameTable").innerHTML = response.name;
 
-          if (product.status == 0) {
+          if (response.status == 0) {
             document.getElementById("productStatus").innerText = 'Недоступен';
           } else {
             document.getElementById("productStatus").innerText = 'Доступен';
           }
 
-          document.getElementById("productAttributes").innerHTML = product.data;
+          document.getElementById("productAttributes").innerHTML = response.data;
+          $("#edit").click(function () {
+            $("#edit-modal-overlay").removeClass('closed');
+            $("#edit-modal").removeClass('closed');
+            document.getElementById("nameProductEdit").value = response.name;
+            document.getElementById("articleProductEdit").value = response.article;
+            document.getElementById("statusProductEdit").value = response.status;
+            document.getElementById("productAttributes").innerHTML = response.data;
+          });
         }
       }
     });
   });
-}); // to close a show modal window  
+}); // to close show modal
 
 var showModal = document.querySelector("#show-modal");
 showModalOverlay = document.querySelector("#show-modal-overlay");
-closeButton = document.getElementById("close");
+closeButton = document.getElementById("closeShow");
 closeButton.addEventListener("click", function () {
-  showModal.classList.add("closed");
-  showModalOverlay.classList.add("closed");
+  showModal.classList.toggle("closed");
+  showModalOverlay.classList.toggle("closed");
+}); // to close edit modal
+
+var editModal = document.querySelector("#edit-modal");
+editModalOverlay = document.querySelector("#edit-modal-overlay");
+closeButton = document.getElementById("closeEdit");
+showModal = document.querySelector("#show-modal");
+showModalOverlay = document.querySelector("#show-modal-overlay");
+closeButton.addEventListener("click", function () {
+  editModal.classList.toggle("closed");
+  editModalOverlay.classList.toggle("closed");
+  showModal.classList.toggle("closed");
+  showModalOverlay.classList.toggle("closed");
 });
 /******/ })()
 ;

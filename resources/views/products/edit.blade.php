@@ -1,20 +1,20 @@
-<div class="bg-modal closed" id="modal-overlay">
-    <div class="bg-modal__modal closed" id="modal">
+<div class="bg-modal closed" id="edit-modal-overlay">
+    <div class="bg-modal__modal closed" id="edit-modal">
         <div class="modal__header">
-            <p class="header__text">Добавить продукт</p>
+            <p class="header__text">Редактировать продукт</p>
             
             <div class="header__icons">
-                <img src="/img/close.png" alt="close" class="icons__close" id="closeCreate">
+                <img src="/img/close.png" alt="close" class="icons__close" id="closeEdit">
             </div>
         </div>
 
         <form action="#" onsubmit="return validate();" 
-            method="POST" id="formAddProduct" pattern="^[a-zA-Z0-9]+$">
+            method="POST" id="formUpdateProduct" pattern="^[a-zA-Z0-9]+$">
             @csrf
             <div id="modal">
                 <div class="modal__input-group">
                     <label for="article" class="input-group__title">Артикул</label>
-                    <input type="text" name="article" id="article" pattern="^[a-zA-Z0-9]+$"
+                    <input type="text" name="article" id="articleProductEdit" pattern="^[a-zA-Z0-9]+$"
                         required class="input-group__input">
 
                     <div id="error-article" class="closed">
@@ -26,7 +26,7 @@
     
                 <div class="modal__input-group">
                     <label for="nameProduct" class="input-group__title">Название</label>
-                    <input type="text" id="nameProduct" name="name"
+                    <input type="text" id="nameProductEdit" name="name"
                         required minlength="10" class="input-group__input">
 
                     <div id="error-name" class="closed">
@@ -38,7 +38,7 @@
     
                 <div class="modal__input-group">
                     <label for="input1" class="input-group__title">Статус</label>
-                    <select type="text" name="status" id="input1" class="input-group__input">
+                    <select type="text" name="status" id="statusProductEdit" class="input-group__input">
 
                         <div class="input__status-overlay">
                             <option selected></option>
