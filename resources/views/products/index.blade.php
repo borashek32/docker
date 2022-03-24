@@ -13,7 +13,7 @@
       
       @if (Auth::user()->hasRole('admin'))
         <div class="content__bg-button">
-            <button class="bg-button__button" id="open-button" data-modal-btn="modalCreate">
+            <button class="bg-button__button" id="openCreate">
                 <p class="button__button-text">Добавить</p>
             </button>
         </div>

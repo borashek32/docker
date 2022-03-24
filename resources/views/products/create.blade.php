@@ -1,5 +1,5 @@
-<div class="bg-modal closed" id="modal-overlay" data-modal-window="modalCreate">
-    <div class="bg-modal__modal closed" id="modal">
+<div class="bg-modal closed" id="modalCreate">
+    <div class="bg-modal__modal" id="modal">
         <div class="modal__header">
             <p class="header__text">Добавить продукт</p>
             
@@ -64,7 +64,7 @@
                 </div>
     
                 <div class="closed" id="attr-overlay1">
-                    <div class="modal__bg-attr closed" id="attr1">
+                    <div class="modal__bg-attr" id="attr1">
                         <div class="bg-attr__input-group">
                             <label for="" class="input-group__title">Название</label>
                             <input type="text" id="extraDataKey" name="data[1][]" 

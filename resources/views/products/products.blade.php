@@ -13,7 +13,7 @@
             @foreach($products as $product)
                 <tr>
                     <td class="body__item">
-                        <a href="#" id="atr">
+                        <a href="#" id="{{ $product->id }}">
                             {{ $product->article }}
                         </a>
                     </td>

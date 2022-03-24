@@ -1,5 +1,5 @@
-<div class="bg-modal closed" id="edit-modal-overlay">
-    <div class="bg-modal__modal closed" id="edit-modal">
+<div class="bg-modal closed" id="modalEdit">
+    <div class="bg-modal__modal">
         <div class="modal__header">
             <p class="header__text">Редактировать продукт</p>
             
@@ -16,24 +16,12 @@
                     <label for="article" class="input-group__title">Артикул</label>
                     <input type="text" name="article" id="articleProductEdit" pattern="^[a-zA-Z0-9]+$"
                         required class="input-group__input">
-
-                    <div id="error-article" class="closed">
-                        <p class="error closed" id="text-error-article">
-                            Поле "Артикул" обязательно для заполнения.
-                        </p>
-                    </div>
                 </div>
     
                 <div class="modal__input-group">
                     <label for="nameProduct" class="input-group__title">Название</label>
                     <input type="text" id="nameProductEdit" name="name"
                         required minlength="10" class="input-group__input">
-
-                    <div id="error-name" class="closed">
-                        <p class="error closed" id="text-error-name">
-                            Поле "Название" обязательно для заполнения.
-                        </p>
-                    </div>
                 </div>
     
                 <div class="modal__input-group">

@@ -56,7 +56,10 @@ class ProductController extends Controller
                     'msg'   => 'Что-то пошло не так'
                 ]);
             }else{
-                return $product;
+
+                return response()->json([
+                    'product'  => $product
+                ]);
             }
         }
     }
@@ -66,12 +69,13 @@ class ProductController extends Controller
         $product = Product::where('id', $id)->first();
 
         return $product;
-        // return view('products.show', compact('product'));
     }
     
     public function edit($id)
     {
-        //
+        $product = Product::where('id', $id)->first();
+
+        return $product;
     }
 
     public function update(Request $request, $id)
