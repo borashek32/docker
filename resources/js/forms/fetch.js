@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  fetchProducts()
+  fetchProducts();
 
   function fetchProducts() {
     $.ajax({
@@ -8,6 +8,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         if(response.status == 200) {
+          $("tbody").html("");
           $.each(response.products, function (key, item) {
             if(item.status == 1) {
               available = "Доступен";

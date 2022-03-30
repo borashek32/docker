@@ -1,28 +1,4 @@
 $(document).ready(function () {
-  fetchProducts();
-
-  function fetchProducts() {
-    $.ajax({
-      type: "GET",
-      url: "/fetch-products",
-      dataType: "json",
-      success: function success(response) {
-        if (response.status == 200) {
-          $.each(response.products, function (key, item) {
-            if (item.status == 1) {
-              available = "Доступен";
-              $("tbody").append("<tr>                <td class=\"body__item\"><a href=\"#\" id=\"\">" + item.article + "</a></td>                <td class=\"body__item\">" + item.name + "</td>                <td class=\"body__item\">" + available + "</td>                <td class=\"body__item\">" + item.data + "</td>              </tr>");
-            } else {
-              unavailable = "Недоступен";
-              $("tbody").append("<tr>                <td class=\"body__item\"><a href=\"#\" id=\"\">" + item.article + "</a></td>                <td class=\"body__item\">" + item.name + "</td>                <td class=\"body__item\">" + unavailable + "</td>                <td class=\"body__item\">" + item.data + "</td>              </tr>");
-            }
-          });
-        }
-      }
-    });
-  }
-});
-$(document).ready(function () {
   // to show a form to add a product
   var modalCreate = document.querySelector("#modalCreate");
   closeCreate = document.querySelector("#closeCreate");
@@ -60,8 +36,8 @@ $(document).ready(function () {
     document.getElementById("extraDataValue").value = "";
   };
 
-  $(document).on('click', '#article', function () {
-    $(".article_error").addClass("closed");
+  $(document).on('click', '#closeCreate', function () {
+    $("span").html("");
   });
   $(document).on('click', '.add_product', function (e) {
     e.preventDefault();
@@ -100,8 +76,57 @@ $(document).ready(function () {
         } else {
           $('#modalCreate').addClass('closed');
           $('#modalCreate').find('input').val("");
+          fetchProducts();
         }
       }
     });
   });
+  fetchProducts();
+
+  function fetchProducts() {
+    $.ajax({
+      type: "GET",
+      url: "/fetch-products",
+      dataType: "json",
+      success: function success(response) {
+        if (response.status == 200) {
+          $("tbody").html("");
+          $.each(response.products, function (key, item) {
+            if (item.status == 1) {
+              available = "Доступен";
+              $("tbody").append("<tr>                <td class=\"body__item\"><a href=\"#\" id=\"\">" + item.article + "</a></td>                <td class=\"body__item\">" + item.name + "</td>                <td class=\"body__item\">" + available + "</td>                <td class=\"body__item\">" + item.data + "</td>              </tr>");
+            } else {
+              unavailable = "Недоступен";
+              $("tbody").append("<tr>                <td class=\"body__item\"><a href=\"#\" id=\"\">" + item.article + "</a></td>                <td class=\"body__item\">" + item.name + "</td>                <td class=\"body__item\">" + unavailable + "</td>                <td class=\"body__item\">" + item.data + "</td>              </tr>");
+            }
+          });
+        }
+      }
+    });
+  }
+});
+$(document).ready(function () {
+  fetchProducts();
+
+  function fetchProducts() {
+    $.ajax({
+      type: "GET",
+      url: "/fetch-products",
+      dataType: "json",
+      success: function success(response) {
+        if (response.status == 200) {
+          $("tbody").html("");
+          $.each(response.products, function (key, item) {
+            if (item.status == 1) {
+              available = "Доступен";
+              $("tbody").append("<tr>                <td class=\"body__item\"><a href=\"#\" id=\"\">" + item.article + "</a></td>                <td class=\"body__item\">" + item.name + "</td>                <td class=\"body__item\">" + available + "</td>                <td class=\"body__item\">" + item.data + "</td>              </tr>");
+            } else {
+              unavailable = "Недоступен";
+              $("tbody").append("<tr>                <td class=\"body__item\"><a href=\"#\" id=\"\">" + item.article + "</a></td>                <td class=\"body__item\">" + item.name + "</td>                <td class=\"body__item\">" + unavailable + "</td>                <td class=\"body__item\">" + item.data + "</td>              </tr>");
+            }
+          });
+        }
+      }
+    });
+  }
 });
