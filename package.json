@@ -27,6 +27,8 @@
     },
     "dependencies": {
         "@vue/compiler-sfc": "^3.1.2",
+        "browser-sync": "^2.27.9",
+        "browser-sync-webpack-plugin": "^2.3.0",
         "toastr": "^2.1.4",
         "vue": "^3.1.2",
         "vue-loader": "^16.2.0"

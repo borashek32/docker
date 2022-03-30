@@ -8,20 +8,26 @@
             </div>
         </div>
 
-        <form action="#" onsubmit="return validate();" 
-            method="POST" id="formUpdateProduct" pattern="^[a-zA-Z0-9]+$">
+        <form action="#" id="formUpdateProduct">
             @csrf
+            
+            <span class="edit_error error-text text-red-500 text-sm"></span>
+
+            <input type="hidden" id="editProductId">
+
             <div id="modal">
                 <div class="modal__input-group">
                     <label for="article" class="input-group__title">Артикул</label>
-                    <input type="text" name="article" id="articleProductEdit" pattern="^[a-zA-Z0-9]+$"
-                        required class="input-group__input">
+                    <input type="text" name="article" id="articleProductEdit" class="input-group__input">
+
+                    <span class="article_edit_error error-text text-red-500 text-sm"></span>
                 </div>
     
                 <div class="modal__input-group">
                     <label for="nameProduct" class="input-group__title">Название</label>
-                    <input type="text" id="nameProductEdit" name="name"
-                        required minlength="10" class="input-group__input">
+                    <input type="text" id="nameProductEdit" name="name" class="input-group__input">
+
+                    <span class="name_edit_error error-text text-red-500 text-sm"></span>
                 </div>
     
                 <div class="modal__input-group">
@@ -34,6 +40,8 @@
                             <option class="status" value="0">Недоступен</option>
                         </div>
                     </select>
+
+                    <span class="status_edit_error error-text text-red-500 text-sm"></span>
                 </div>
     
                 <p class="modal__subheader">Атрибуты</p>
@@ -76,7 +84,7 @@
             </div>
             <div class="bg-modal__button">
                 <button class="bg-button__text" id="submitButton" type="submit" >
-                    Добавить
+                    Обновить
                 </button>
             </div>
         </form>

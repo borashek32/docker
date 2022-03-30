@@ -1,37 +1,39 @@
 <div class="bg-modal closed" id="modalShow">
     <div class="bg-modal__modal" id="show-modal">
+        <span class="show_error error-text text-red-500 text-sm"></span>
+
         <div class="modal__header">
             <p class="header__text" id="productName"></p>
 
             <div class="header__icons">
-                <a href="#" id="openEdit">
-                    <img src="/img/edit.png" alt="edit" class="icons__close">
+                <a href="#" class="openEditDiv">
+                    
                 </a>
                 <img src="/img/trash1.png" alt="trash" class="icons__close" id="trashShow">
                 <img src="/img/close.png" alt="close" class="icons__close" id="closeShow">
             </div>
         </div>
 
-        <table>
-            <tbody class="">
-                <tr class="modal__show">
-                    <td class="show__title">Артикул</td>
-                    <td class="show__value" id="productArticle"></td>
-                </tr>
-                <tr class="modal__show">
-                    <td class="show__title">Название</td>
-                    <td class="show__value" id="productNameTable"></td>
-                </tr>
-                <tr class="modal__show">
-                    <td class="show__title">Статус</td>
-                    <td class="show__value" id="productStatus"></td>
-                </tr>
-                <tr class="modal__show">
-                    <td class="show__title">Атрибуты</td>
-                    <td class="show__value" id="#"></td>
-                </tr>
-            </tbody>
-        </table>
+        <div>
+            <div class="show">
+                <div class="modal__show">
+                    <div class="show__title">Артикул</div>
+                    <div class="show__value" id="productArticle"></div>
+                </div>
+                <div class="modal__show">
+                    <div class="show__title">Название</div>
+                    <div class="show__value" id="productNameTable"></div>
+                </div>
+                <div class="modal__show">
+                    <div class="show__title">Статус</div>
+                    <div class="show__value" id="productStatus"></div>
+                </div>
+                <div class="modal__show">
+                    <div class="show__title">Атрибуты</div>
+                    <div class="show__value" id="#"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

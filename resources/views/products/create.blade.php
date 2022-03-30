@@ -88,14 +88,10 @@
                 </a>
             </div>
             <div class="bg-modal__button">
-                <button class="bg-button__text add_product" id="submitButton" type="submit" >
-                    Добавить
+                <button class="bg-button__text add_product" id="saveButton" type="submit" >
+                    Сохранить
                 </button>
             </div>
         </form>
     </div>
 </div>
-
-@section('scripts')
-    
-@endsection

@@ -26,4 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])
         ->name('index');
     Route::post('/products', [App\Http\Controllers\Dashboard\ProductController::class, 'store']);
     Route::get('/fetch-products', [App\Http\Controllers\Dashboard\ProductController::class, 'fetchProducts']);
+    Route::get('/one-product/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'show']);
+    Route::get('/product/edit/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'edit']);
+    Route::put('/update-product/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'update']);
 });
