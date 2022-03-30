@@ -8,30 +8,30 @@
             </div>
         </div>
 
-        <form action="{{ route('products.store') }}" method="POST"  
+        <form action="#" method="POST"  
             enctype="multipart/form-data" id="formAddProduct" pattern="^[a-zA-Z0-9]+$">
             @csrf
             <div id="modal">
+
+                {{-- <ul id="storeErrorList" class="modal__input-group"></ul> --}}
+
                 <div class="modal__input-group">
-                    <label for="product_article" class="input-group__title">Артикул</label>
-                    <input type="text" name="article" id="article" 
-                        pattern="^[a-zA-Z0-9]+$" class="input-group__input">
+                    <label for="product_article" class="input-group__title ">Артикул</label>
+                    <input type="text" id="article" class="input-group__input article">
 
                     <span class="article_error error-text text-red-500 text-sm"></span>
                 </div>
     
                 <div class="modal__input-group">
                     <label for="product_name" class="input-group__title">Название</label>
-                    <input type="text" id="name" name="name"
-                        minlength="10" class="input-group__input">
+                    <input type="text" id="name" class="input-group__input name">
 
                     <span class="name_error error-text text-red-500 text-sm"></span>
                 </div>
     
                 <div class="modal__input-group">
                     <label for="product_status" class="input-group__title">Статус</label>
-                    <select type="text" name="status" id="status" 
-                        class="input-group__input">
+                    <select type="text" id="status" class="input-group__input status">
 
                         <div class="input__status-overlay">
                             <option selected></option>
@@ -88,10 +88,14 @@
                 </a>
             </div>
             <div class="bg-modal__button">
-                <button class="bg-button__text" id="submitButton" type="submit" >
+                <button class="bg-button__text add_product" id="submitButton" type="submit" >
                     Добавить
                 </button>
             </div>
         </form>
     </div>
 </div>
+
+@section('scripts')
+    
+@endsection

@@ -19,4 +19,11 @@ Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])
 
 // DASHBOARD ROUTES
 Route::middleware(['auth:sanctum', 'verified'])
-    ->resource('/products', App\Http\Controllers\Dashboard\ProductController::class);
+    ->name('products.')
+    ->group(function() {
+
+    Route::get('/products', [App\Http\Controllers\Dashboard\ProductController::class, 'index'])
+        ->name('index');
+    Route::post('/products', [App\Http\Controllers\Dashboard\ProductController::class, 'store']);
+    Route::get('/fetch-products', [App\Http\Controllers\Dashboard\ProductController::class, 'fetchProducts']);
+});
