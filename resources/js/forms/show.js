@@ -24,6 +24,7 @@ $(document).on("click", ".openLink", function (e) {
                 }
 
                 $(".openEditDiv").html(`<img src="/img/edit.png" id="`+response.product.id+`" alt="edit" class="openEdit icons__close">`)
+                $("#deleteShowDiv").html(`<img src="/img/trash1.png" alt="trash" class="icons__close deleteShow" id="`+response.product.id+`">`)
             }
         }
     });

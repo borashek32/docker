@@ -9,7 +9,8 @@ mix.js('resources/js/app.js', 'public/js')
         'resources/js/forms/fetch.js',
         'resources/js/forms/show.js',
         'resources/js/forms/edit.js',
-        'resources/js/forms/update.js'
+        'resources/js/forms/update.js',
+        'resources/js/forms/delete.js'
     ], 'public/js/index.js', 'public/js')
     .sass('resources/sass/site.sass', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [

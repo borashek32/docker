@@ -20,7 +20,6 @@ $(document).on("click", "#submitButton", function (e) {
     data: data,
     dataType: "json",
     success: function (response) {
-      console.log(response.status)
       if(response.status == 200) {
         $('#modalEdit').addClass('closed');
         $('#modalEdit').find('input').val("");

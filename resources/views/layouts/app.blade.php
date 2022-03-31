@@ -15,6 +15,7 @@
         @include('products.create')
         @include('products.show')
         @include('products.edit')
+        {{-- @include('products.delete') --}}
 
         <div class="bg">
             <div class="bg__left">

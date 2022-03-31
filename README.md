@@ -5,6 +5,11 @@
 - PostgreSQL
 - PHP8.0
 - Node.js
+- Sass
+- Ajax
+- Webpack
+- BrowserSync
+- Docker
 
 Локальная установка:
 - клонировать репозиторий `https://github.com/borashek32/docker.git`

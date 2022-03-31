@@ -29,4 +29,5 @@ Route::middleware(['auth:sanctum', 'verified'])
     Route::get('/one-product/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'show']);
     Route::get('/product/edit/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'edit']);
     Route::put('/update-product/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'update']);
+    Route::delete('/delete/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'destroy']);
 });

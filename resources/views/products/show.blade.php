@@ -9,7 +9,9 @@
                 <a href="#" class="openEditDiv">
                     
                 </a>
-                <img src="/img/trash1.png" alt="trash" class="icons__close" id="trashShow">
+                <div id="deleteShowDiv">
+
+                </div>
                 <img src="/img/close.png" alt="close" class="icons__close" id="closeShow">
             </div>
         </div>
