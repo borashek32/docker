@@ -10,33 +10,7 @@
             </tr>
             </thead>
             <tbody class="table-body">
-            @foreach($products as $product)
-                <tr>
-                    <td class="item">
-                        <a href="{{ route('products.show', $product->id) }}">
-                            {{ $product->article }}
-                        </a>
-                    </td>
-                    
-                    <td class="item">
-                        <a href="{{ route('products.show', $product->id) }}">
-                            {{ $product->name }}
-                        </a>
-                    </td>
 
-                    @if($product->status == '1') 
-                        <td class="item">доступен</td>
-                    @else
-                        <td class="item">недоступен</td>
-                    @endif
-
-                    <td class="item">
-                        @foreach($product->data as $field => $value)
-                            {{ $field }}: {{ $value }}<br>
-                        @endforeach
-                    </td>
-                </tr>
-            @endforeach
             </tbody>
         </table>
     </div>

@@ -22,6 +22,7 @@ body {
 .bg {
   display: flex;
   flex-direction: row;
+  min-height: 100%;
 }
 .bg .bg__left {
   width: 180px;
